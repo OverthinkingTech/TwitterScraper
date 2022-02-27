@@ -44,7 +44,7 @@ except Exception as e:
     print(e)
 
 #%% Function to check character type
-# I encountered errors when emojis and special unicode characters. This can be 
+# I encountered errors with emojis and special unicode characters. This can be 
 # editted to expand what gets kept.
 def isproperchar(ch):
     if ch.isalpha() or ch.isdigit(): 
@@ -63,7 +63,7 @@ except:
     f = open("ArticlesAlreadyFound.txt", "x")
     f = open("ArticlesAlreadyFound.txt", "r")
 # Reads a file of past found articles so you do not get emailed about the same
-# srticle every time
+# article every time
 founds = f.read()
 f.close()
 foundlist = founds.split('\n')
@@ -104,22 +104,20 @@ for user in users:
                     for found in foundlist:
                         if found==link:
                             include = False
-                for lookfor in lookfors:
-                    if lookfor in ttext:
-                        if include:
-                            print(username+':',ttext)
-                            f = open("ArticlesAlreadyFound.txt", "a")
-                            f.write(link)
-                            f.write('\n')
-                            time.sleep(0.5)
-                            f.close()
-                            foundlist.append(link)
-                            etext = username + ": " + link
-                            message = """\
+                    if include:
+                        print(username+':',ttext)
+                        f = open("ArticlesAlreadyFound.txt", "a")
+                        f.write(link)
+                        f.write('\n')
+                        time.sleep(0.5)
+                        f.close()
+                        foundlist.append(link)
+                        etext = username + ": " + link
+                        message = """\
 Subject: Twitter Link
 
 """
-                            message += etext
-                            server.sendmail(emaildata[0], emaildata[2], message)
-                            time.sleep(2)
+                        message += etext
+                        server.sendmail(emaildata[0], emaildata[2], message)
+                        time.sleep(2)
 
