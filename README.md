@@ -6,12 +6,11 @@ The text file of links also works to keep track of what has been found before so
 This means the python script is great to run as a cron job.
 
 You will also need 2 additional files in the same folder as the python script:
-  API_Tokens.txt
-      This needs to be a comma seperated list:
+  -API_Tokens.txt
+      --This needs to be a comma seperated list:
         "consumer_key,consumer_secret,access_token_key,access_token_secret"
-
-  Email_UserPass.txt
-      This needs to be a comma seperated list:
+  -Email_UserPass.txt
+      --This needs to be a comma seperated list:
         "sending_gmail,sending_gmail_password,recieving_email"
         
         
